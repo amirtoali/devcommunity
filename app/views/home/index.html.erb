@@ -1,0 +1,31 @@
+<div class="card mt-2">
+  <div class="card-body">
+  <%= search_form_for @q, url: root_path do |f| %>
+   <div class="row"> 
+    <div class="col-11">
+     <%= f.search_field :country_cont, class:"form-control" %>
+    </div>
+    <div class="col-1">
+    <%= f.submit "Search", class: "btn btn-primary" %>
+    </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<div class=" row">
+<% @users.each do |user| %>
+<div class="d-flex mt-3 col-3" style="min-height: 30vh;">
+  <div class="card text-center ms-1 shadow" style="min-width: 16rem;">
+    <%= image_tag("user_img.jpeg", class: "rounded-circle mx-auto mt-3 border border-primary", style: "width: 120px;") %>
+    <div class="card-body"  data-controller="user-name">
+      <h5 class="card-title" data-user-name-target = "name" data-action = "click->user-name#getUserName" ><%= user.user_name %></h5>
+      <p class="card-text">
+       <%= user.perfile_title %>
+        <div class="text-primary"><%= user.country %></div>
+      </p>
+      <a href="<%=member_show_path(user) %>" class="btn btn-primary">Veiw perfile</a>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
