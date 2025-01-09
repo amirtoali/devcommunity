@@ -1,0 +1,23 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="bs-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Description</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="member-description-form">
+          <%= form_with model: @member, url:  uupdate_description_path(@member), method: :patch do |form| %>
+            <%= form.label :about, "Description" %>
+            <%= form.text_area :about, value: @member.about, class: "w-100 min-vh-75", style: "width: 100% !important; min-height: 50vh !important;" %>
+        </div>
+        <div class="modal-footer">
+          <%= form.submit "Save Changes", class: "btn btn-primary", data: { action: "click->bs-modal#submitEnd" } %>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
