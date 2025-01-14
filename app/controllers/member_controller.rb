@@ -4,9 +4,8 @@ class MemberController < ApplicationController
 	end
 	def edit_description
 		@member = User.find(params[:id])
-		byebug
 	end
-def update_descriptions
+def update_description
 	byebug
   @member = User.find(params[:id])
   

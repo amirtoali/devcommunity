@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :work_expriences
   PROFILE_TITLE= [
   'sanair ruby on rails developer',
   'sanair ruby on rails developer',
