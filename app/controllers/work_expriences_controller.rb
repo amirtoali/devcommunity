@@ -13,6 +13,19 @@ class WorkExpriencesController < ApplicationController
 	 		render :new
 	 	end
 	 end
+	 def edit 
+	 end
+	 def update
+	 	if @work_exprience.update(work_exprience_params)
+	      redirect_to root_path
+	    end
+	end
+	def destroy
+	  if @work_exprience.destroy
+	  	 redirect_to root_path
+	  end
+	end
+
 	 private
 	 def set_work_exprience
 	 	@work_exprience = WorkExprience.find(params[:id])
