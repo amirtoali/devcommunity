@@ -1,59 +1,68 @@
-<%= form_with  model: @work_exprience,  data: { turbo_stream: false } do |form| %>
- <div class="card m-3">
- 	<div class="error-area" style="color:red;">
- 		<% if @work_exprience.errors.any? %>
- 	 <h3> <%= @work_exprience.errors.count %> persisted your work exprience </h3> 
- 	 <% end %>
- 	</div>
- 	<div class="row m-3">
- 	  <div class="col-5">
- 		<%= form.label :company, class: "form-label" %>  
+<%= form_with model: @work_exprience, data: { turbo_stream: false, controller: "work-experience" } do |form| %>
+  <div class="card m-3">
+    <div class="error-area" style="color:red;">
+      <% if @work_exprience.errors.any? %>
+        <h3> <%= @work_exprience.errors.count %> persisted your work experience </h3> 
+      <% end %>
+    </div>
+    
+    <div class="row m-3">
+      <div class="col-5">
+        <%= form.label :company, class: "form-label" %>  
         <%= form.text_field :company, class:"form-control"  %>
       </div>
- 	  <div class="col-5">
- 		<%= form.label :job_title, class: "form-label" %>  
+      <div class="col-5">
+        <%= form.label :job_title, class: "form-label" %>  
         <%= form.text_field :job_title, class:"form-control"  %>
-      </div>
- 	</div>
- 	<div class="row m-3">
- 	  <div class="col-5">
- 		<%= form.label :start_date, class: "form-label" %>  
-        <%= form.date_field :start_date, class:"form-control"  %>
-      </div>
- 	  <div class="col-5">
- 		<%= form.label :end_date, class: "form-label" %>  
-        <%= form.date_field :end_date, class:"form-control"  %>
-      </div>
- 	</div>
- 	<div class="row m-3">
- 	  <div class="col-5">
- 		<%= form.label :employment_type, class: "form-label" %>  
-        <%= form.select :employment_type, WorkExprience::EMPLOYMENT_TYPE, { prompt: "Select a role" }, class: "form-control"  %>
-      </div>
- 	  <div class="col-5">
- 		<%= form.label :location_type, class: "form-label" %>  
-        <%= form.select :location_type, WorkExprience::LOCATION_TYPE, { prompt: "Select a role" }, class: "form-control"  %>
-      </div>
- 	</div>
-     <div class="row m-3">
- 	  <div class="col-10">
- 		<%= form.label :location, class: "form-label" %>  
-        <%= form.text_field :location, class:"form-control"  %>
-      </div>
-    </div>
-    <div class="row m-3">
- 	  <div class="col-10">
- 		<%= form.label :description, class: "form-label" %>  
-        <%= form.text_area :description, class:"form-control"  %>
-      </div>
-    </div>
-     <div class="row m-3">
- 	  <div class="form-check form-switch">
- 		<%= form.label :currently_working_here,class: "form-check-labe" %>  
-        <%= form.check_box :currently_working_here, class:"form-check-input"  %>
       </div>
     </div>
 
- </div>
-<%= form.submit %>
+    <div class="row m-3">
+      <div class="col-5">
+        <%= form.label :start_date, class: "form-label" %>  
+        <%= form.date_field :start_date, class:"form-control" %>
+      </div>
+      <div class="col-5">
+        <%= form.label :end_date, class: "form-label" %>  
+        <%= form.date_field :end_date, class:"form-control", data: { action: "change->work-experience#toggleCurrentlyWorking", work_experience_target: "endDate" } %>
+      </div>
+    </div>
+
+    <div class="row m-3">
+      <div class="col-5">
+        <%= form.label :employment_type, class: "form-label" %>  
+        <%= form.select :employment_type, WorkExprience::EMPLOYMENT_TYPE, { prompt: "Select a role" }, class: "form-control" %>
+      </div>
+      <div class="col-5">
+        <%= form.label :location_type, class: "form-label" %>  
+        <%= form.select :location_type, WorkExprience::LOCATION_TYPE, { prompt: "Select a role" }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row m-3">
+      <div class="col-10">
+        <%= form.label :location, class: "form-label" %>  
+        <%= form.text_field :location, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row m-3">
+      <div class="col-10">
+        <%= form.label :description, class: "form-label" %>  
+        <%= form.text_area :description, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="row m-3">
+      <div class="form-check form-switch">
+        <%= form.label :currently_working_here, class: "form-check-label" %>  
+        <%= form.check_box :currently_working_here, class:"form-check-input", data: { work_experience_target: "currentlyWorking" } %>
+      </div>
+    </div>
+    <div class="text-center">
+	 <%= form.submit "Submit", class: "btn btn-primary m-3 px-5" %>
+	</div>
+
+  </div>
+
 <% end %>

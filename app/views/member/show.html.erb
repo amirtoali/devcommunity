@@ -1,65 +1,84 @@
-<div class=" row border-top mt-2 m-5 shadow">
- <div class="col-3">
- 	 <%= image_tag("user_img.jpeg", class: "mx-auto mt-3 ", style: "width: 150px;") %>
- </div>
- <div class="col-8  mt-4">
- 	<div class="row h4">
- 	 <%= @member.user_name %>
- 	</div>
- 	<div class="row">
- 		<%= @member.perfile_title %>
- 	</div>
- 	<div class="row text-primary">
- 	<%= @member.user_locations %>
- 	</div> 
- </div>
- <div class=" row mt-4 border-top  m-1">
- 	<div class="row h3">
- 		About
- 	</div>
- 	<div class="row bordr-buttom">
- 		<%= render "member_description",  member: @member %>
-<%= link_to edit_descriptions_path(@member), data: { turbo_stream: true } do %>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-  </svg>
-<% end %>
+<div class="row border-top mt-2 m-5 shadow">
+  <div class="col-3">
+    <%= image_tag("user_img.jpeg", class: "mx-auto mt-3", style: "width: 150px;") %>
+  </div>
+  <div class="col-8 mt-4">
+    <div class="row h4">
+      <%= @member.user_name %>
+    </div>
+    <div class="row">
+      <%= @member.perfile_title %>
+    </div>
+    <div class="row text-primary">
+      <%= @member.user_locations %>
+    </div>
+  </div>
+  
+  <div class="row mt-4 border-top m-1">
+    <div class="row h3">
+      About
+    </div>
+    <div class="row border-bottom">
+      <%= render "member_description", member: @member %>
 
- 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
- 	</div>
-  <%= link_to new_work_exprience_path, data: { turbo_stream: false } do %>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-  </svg>
-<% end %>
-
- </div>
-
+    </div>
+  </div>
 </div>
-<div class="card">
+
+<div class="card mx-5">
   <div class="card-header">
     <div class="d-flex justify-content-between align-items-center">
-      <!-- Start -->
       <div class="h4">Work Experiences</div>
-      
-      <!-- Center -->
       <div class="d-flex justify-content-center">
         <%= link_to new_work_exprience_path, data: { turbo_stream: false } do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-        </svg>
-       <% end %>
-       add Work Experiences
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg>
+        <% end %>
+        Add Work Experiences
       </div>
       <div>
         <%= link_to edit_work_exprience_path(WorkExprience.first), data: { turbo_stream: false } do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-        </svg>
-       <% end %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg>
+        <% end %>
+        Edit Work Experiences
       </div>
     </div>
   </div>
+<% if user_signed_in? && @member.work_expriences.present? %>
+  <% current_user.work_expriences.each do |work_exprience| %>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-10 h5">
+            <%= work_exprience.job_title %>
+          </div>
+          <div class="col-2 h5">
+         <%= link_to edit_work_exprience_path(work_exprience), data: { turbo_stream: false } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+          </svg>
+        <% end %>
+        <%= link_to work_exprience_path(work_exprience), data: { turbo_method: :delete, turbo_stream: false } do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+        </svg>
+        <% end %>
+          </div>
+          <div class="p"><%= work_exprience.company %> </div>
+          <div class="p"><%= work_exprience.employment_type %> </div>
+          <div class="p"><%= work_exprience.location %> </div> 
+          <div class="p">
+            <%= work_exprience.start_date.strftime("%d-%m-%Y") %> - 
+            <%= work_exprience.end_date.present? ? work_exprience.end_date.strftime("%d-%m-%Y") : "present" %> 
+            (<%= work_exprience.count_exprinces_date %>)
+          </div>
+        </div>
+      </div>
+  <% end %>
+   <% end %>
 </div>
 
 
