@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "/edit_description/:id", to: "member#edit_description", as: 'edit_descriptions'
   patch "/update_description/:id", to: "member#update_description", as: "update_description"
   resources :work_expriences
+  resources :connections
 
 end

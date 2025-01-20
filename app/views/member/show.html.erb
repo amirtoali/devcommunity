@@ -9,6 +9,12 @@
     <div class="row">
       <%= @member.perfile_title %>
     </div>
+    <div id="user-connections-status">
+      <% if user_signed_in? && current_user.check_if_already_connected?(current_user, @member) %>
+       <%= link_to "connect", connections_path, class: "btn btn-primary" %>
+       <% end %>
+
+    </div>
     <div class="row text-primary">
       <%= @member.user_locations %>
     </div>
@@ -48,12 +54,13 @@
     </div>
   </div>
 <% if user_signed_in? && @member.work_expriences.present? %>
-  <% current_user.work_expriences.each do |work_exprience| %>
+  <% @member.work_expriences.each do |work_exprience| %>
     <div class="card-body">
         <div class="row">
           <div class="col-10 h5">
             <%= work_exprience.job_title %>
           </div>
+          <% if  @member ==current_user %>
           <div class="col-2 h5">
          <%= link_to edit_work_exprience_path(work_exprience), data: { turbo_stream: false } do %>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -67,6 +74,7 @@
         </svg>
         <% end %>
           </div>
+          <% end %>
           <div class="p"><%= work_exprience.company %> </div>
           <div class="p"><%= work_exprience.employment_type %> </div>
           <div class="p"><%= work_exprience.location %> </div> 
