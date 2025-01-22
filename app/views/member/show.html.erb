@@ -11,7 +11,9 @@
     </div>
     <div id="user-connections-status">
       <% if user_signed_in? && current_user.check_if_already_connected?(current_user, @member) %>
-       <%= link_to "connect", connections_path, class: "btn btn-primary" %>
+       <%= button_to 'Connect', connections_path(connected_user_id: @member.id), method: :post, class: 'btn btn-primary' %>
+       <% elsif user_signed_in? && !current_user.check_if_already_connected?(current_user, @member) %>
+           <%= button_to 'pennding', connections_path(connected_user_id: @member.id), method: :post, class: 'btn btn-primary' %>
        <% end %>
 
     </div>
