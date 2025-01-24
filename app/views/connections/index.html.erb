@@ -1,0 +1,5 @@
+<% @connections.each do |connection| %>
+<%= connection.status %>
+ <%= button_to 'Disconnect', connection, method: :delete, class: 'btn btn-danger' %>
+  <%= button_to 'isconnect', connection, method: :patch, class: 'btn btn-danger' %>
+<% end %>
