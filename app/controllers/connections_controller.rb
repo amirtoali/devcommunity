@@ -1,7 +1,8 @@
 class ConnectionsController < ApplicationController
 	 before_action :authenticate_user!
 	 def index
-	 	 @connections = current_user.reverse_connections
+	 	@conntected_connections = current_user.connections.where(user_id: current_user.id)
+	 	@connections = Connection.where(connected_user_id: current_user.id)
 	 end
 	def create 
 		 @connection = current_user.connections.build(connected_user_id: params[:connected_user_id])
