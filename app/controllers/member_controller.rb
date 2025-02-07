@@ -2,6 +2,8 @@ class MemberController < ApplicationController
 	def show
 		@member = User.find(params[:id])
     @connection = Connection.find_by(connected_user_id: @member .id)
+    @connections_count = Connection.where(status: "accepted")
+                               .where("user_id = ? OR connected_user_id = ?", @member.id, @member.id)
 	end
 	def edit_description
 		@member = User.find(params[:id])

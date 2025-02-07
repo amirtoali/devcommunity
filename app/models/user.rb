@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+    paginates_per 5
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :work_expriences, dependent: :destroy
@@ -29,4 +30,10 @@ end
   def check_if_already_connected?(current_user, user)
     current_user != user && !current_user.connections.pluck(:connected_user_id).include?(user.id)
   end
+  def mutual_connections(user1, user2)
+  User.joins(:connections)
+      .where(connections: { user_id: user1.id })
+      .where(id: user2.connected_users.pluck(:id))
+end
+
 end
