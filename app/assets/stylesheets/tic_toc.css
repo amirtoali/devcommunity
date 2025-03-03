@@ -1,0 +1,50 @@
+.main-div {
+  background-color: #00879E;
+  color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cantainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+  gap: 5px; /* Spacing between buttons */
+  width: 160px; /* Adjust width to fit the buttons */
+}
+
+.btn1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  background-color: white;
+  color: #00879E;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #006d7a;
+  color: white;
+}
+#reset-btn{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 70px;
+  background-color: black;
+  color: #00879E;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

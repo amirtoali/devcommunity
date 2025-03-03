@@ -1,0 +1,120 @@
+<h1>Play Rock Paper Scissors</h1>
+
+<div class="choices">
+  <div class="choice" id="rock">
+    <%= image_tag 'game/rock.png' %>
+  </div>
+
+  <div class="choice" id="paper">
+    <%= image_tag 'game/paper.png' %>
+  </div>
+
+  <div class="choice" id="scissors">
+    <%= image_tag 'game/scissors.png' %>
+  </div>
+</div>
+
+<div class="score">
+  <div class="your">0</div>
+  <div class="comp">0</div>
+  <div class="btn">good</div>
+</div>
+
+<style>
+  /* Center the heading with better styling */
+  h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Center all choices */
+  .choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Adds spacing between choices */
+    margin-top: 50px;
+  }
+
+  .choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  /* Circular images with a smooth hover effect */
+  .choice img {
+    height: 100px;
+    width: 100px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out, transform 0.2s;
+  }
+
+  .choice img:hover {
+    opacity: 0.6;
+    transform: scale(1.1); /* Slightly enlarges on hover */
+  }
+
+  /* Centered Score Section */
+  .score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .your,
+  .comp {
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .your {
+    color: blue;
+  }
+
+  .comp {
+    color: red;
+  }
+  .btn{
+  	display: block;
+  	background-color: black;
+  	g
+  }
+</style>
+<script>
+    let userSrc = 0;
+    let compSrc = 0;
+    let choices = document.querySelectorAll(".choice");
+
+    choices.forEach((choice) => {
+        let uchice = choice.id;
+
+        choice.addEventListener("click", () => {
+            let options = ["rock", "paper", "scissors"];
+            const choiceIdx = Math.floor(Math.random() * 3);
+            let comp = options[choiceIdx];
+
+            console.log("Choice was clicked:", choice.id, "Comp choice:", comp);
+
+            if (comp === uchice) {
+                console.log("Game is draw");
+            }
+            else if(comp=== "rock" && uchice==="paper"){
+            	console.log("you win")
+            }
+        });
+    });
+</script>
+

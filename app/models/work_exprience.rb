@@ -1,4 +1,5 @@
 class WorkExprience < ApplicationRecord
+   acts_as_votable
   EMPLOYMENT_TYPE = ["full_time", "part_time", "self_employeed", "freelance", "trainee", "internship"]
   LOCATION_TYPE = [ "onsite", "hybird","remote"]
   belongs_to :user

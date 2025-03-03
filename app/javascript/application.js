@@ -5,3 +5,5 @@ import "trix"
 import "@rails/actiontext"
 import "./main"
 //= require main
+import "./custom";
+

@@ -29,3 +29,101 @@
 </div>
 <% end %>
 </div>
+<h1 class="custam"></h1>
+<script>
+<%#   a = [100, 110, 120, 130, 140, 150]
+let i=0
+ for(let val of a){
+ let offer = a[i]/10;
+ a[i]= val-offer;
+ console.log(`offer is a ${a[i]}`)
+ i++
+ } %>
+<%#  function myFunction(){
+  console.log("we are learning js")
+ } %>
+<%# function addTwoNumber(a,b){
+  c = a+b
+  return c
+  console.log(c)
+}
+addTwoNumber(12, 23) %>;
+<%# const sum = (a,b) =>{
+  let c = a+b; 
+  console.log(c)
+}
+sum(128, 4) %>
+<%# let input = prompt("Please enter your name", "Harry Potter");
+const grretings= (iuput)=>{
+  console.log(input)
+}
+grretings(input); %>
+<%# arr = [1,2,3,4,56,77]
+arr.forEach((val ,i) =>{
+ sqr =val*val
+ console.log(sqr, i)
+}) %>
+<%# arr = [1,2,3,4,56,77]
+let newArr = arr.map((val)=>{
+  return val*val
+})
+console.log(newArr, arr) %>
+<%# let marks = [1,2,3,4,56,77,80,45,50] %>
+<%# let newArr = arr.filter((val)=>{
+  if(val%2==0){
+    console.log(val)
+  }
+}) %>
+<%# let newArr = arr.reduce((res, curr)=>{
+  return  res>curr? res:curr;
+})
+console.log(newArr)
+ %>
+<%#  let newMarks = marks.filter((mark)=>{
+  return mark>= 50
+ })
+ console.log(newMarks) %>
+<%# let input = prompt("Enter input");
+let arr = []; // Declare arr outside the loop
+
+// Convert input to a number (since prompt returns a string)
+let num = Number(input);
+
+for (let i = 0; i < num; i++) {
+  arr.push(i); // Add `i` to the array
+}
+console.log(arr);
+   let arrReduce = arr.reduce((res , curr)=>{
+   return res+curr
+   })
+   console.log(arrReduce) %>
+let avain = document.querySelector(".custam");
+
+if (avain) {
+    // Add a button inside the div
+    avain.innerHTML = '<button type="button" id="colorChangeBtn">Click Me!</button>';
+
+    // Select the button and add an event listener
+    let button = document.getElementById("colorChangeBtn");
+
+    button.addEventListener("click", function () {
+        document.body.style.backgroundColor = getRandomColor();
+         document.body.style.color = "green";
+    });
+
+    // Function to generate a random color
+    function getRandomColor() {
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+} else {
+    console.log("No elements found with class 'custam'");
+}
+console.log("No elements found with class 'custam'");
+
+
+</script>
