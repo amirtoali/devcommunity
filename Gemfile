@@ -77,3 +77,5 @@ gem "byebug"
 gem 'ransack'
 gem 'kaminari'
 gem 'acts_as_votable'
+gem 'country_select', '~> 8.0'
+gem 'carmen'

@@ -2,15 +2,64 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row">
+   <div class="col-6">  
+      <div class="form-group">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, class: "form-control" %>
+     </div>
+    </div>
+     <div class="col-6">  
+      <div class="form-group ">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+     </div>
+   </div>
+    <div class="row">
+   <div class="col-6">  
+      <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+     </div>
+    </div>
+     <div class="col-6">  
+      <div class="form-group ">
+        <%= f.label :contect_number %><br />
+        <%= f.text_field :contect_number, class: "form-control" %>
+      </div>
+     </div>
+   </div>
+ <div class="row">
+   <div class="col-6">  
+      <div class="form-group">
+      <%= f.label :username %><br />
+       <%= f.text_field :username, class: "form-control" %>
+     </div>
+    </div>
+     <div class="col-6">  
+      <div class="form-group ">
+        <%= f.label :perfile_title %><br />
+        <%= f.text_field :perfile_title, class: "form-control" %>
+      </div>
+     </div>
+   </div>
+
+  
+<div>
+    <%= f.label :country, "Select Country" %>
+    <%= f.country_select :country, priority_countries: ["US", "CA", "GB", "IN"], include_blank: "Select a Country", data: { action: "change->address#loadStates", address_target: "country" } %>
   </div>
 
+  <div>
+    <%= f.label :state, "Select State" %>
+    <%= f.select :state, [], { include_blank: "Select a State" }, { id: "state-select", data: { action: "change->address#loadCities", address_target: "state" } } %>
+  </div>
+
+  <div>
+    <%= f.label :city, "Select City" %>
+    <%= f.select :city, [], { include_blank: "Select a City" }, { id: "city-select", data: { address_target: "city" } } %>
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
